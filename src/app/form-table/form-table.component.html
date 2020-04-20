@@ -1,0 +1,77 @@
+<div class="container">
+  <!-- form [formGroup]="this.AppInputFormComponent.form"-->
+    <input placeholder="Rows"
+           [formControl]="rowForm"
+           type="number"
+           class="input-field col s12">
+
+    <input placeholder="Columns"
+           [formControl]="colForm"
+           type="number"
+           class="input-field col s12">
+
+    <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
+      Submit
+    </button>
+  <!--/form-->
+  ok: {{rowForm.value}}
+  ok: {{colForm.value}}
+
+  <div id="table-scroll" class="table-scroll">
+    <div id="faux-table" class="faux-table" aria="hidden"></div>
+    <div class="table-wrap">
+      <table id="main-table" class="main-table">
+        <thead>
+          <tr>
+            <td scope="col" *ngFor="let c of col">{{ c }}</td>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let i of data; index as a">
+            <td>{{ i.name }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.company }}</td>
+            <td>{{ i.date_entry }}</td>
+            <td>{{ i.org_num }}</td>
+            <td>{{ i.address_1 }}</td>
+            <td>{{ i.city }}</td>
+            <td>{{ i.zip }}</td>
+            <td>{{ i.geo }}</td>
+            <td>{{ i.pan }}</td>
+            <td>{{ i.pin }}</td>
+            <td>{{ i.id }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.fee }}</td>
+            <td>{{ i.guid }}</td>
+            <td>{{ i.date_exit }}</td>
+            <td>{{ i.date_first }}</td>
+            <td>{{ i.date_recent }}</td>
+            <td>{{ i.url }}</td>
+            <td>
+              <button class="waves-effect waves-light btn col s12" (click)="showData(a)">id</button>
+            </td>
+          </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <td *ngFor="let c of col">{{ c }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(1)">1</button>
+<button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(2)">2</button>
+<button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(3)">3</button>
+<button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(4)">4</button>
+<button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(5)">5</button>
+<button class="waves-effect waves-light btn col s12"
+  (click)="updatePagination(6)">6</button>
+</div>
